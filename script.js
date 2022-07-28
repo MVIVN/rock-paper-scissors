@@ -32,20 +32,54 @@ console.log(`Player chose: ${playerSelection}`); // Used console log to check th
 function playRound(playerSelection, computerSelection) {
     // Used conditional statements to check for all gameplay scenarios and return a result
     if (playerSelection === computerSelection) {
-        return "It's a draw!"
+        console.log("It's a draw!");
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return "You win! Rock beats scissors!"
+        console.log("You win! Rock beats scissors!");
+        return "win";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        return "You lose! Paper beats rock!"
+        console.log("You lose! Paper beats rock!");
+        return "lose";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        return "You lose! Scissors beats paper!"
+        console.log("You lose! Scissors beats paper!");
+        return "lose";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        return "You win! Paper beats rock!"
+        console.log("You win! Paper beats rock!");
+        return "win";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        return "You lose! Rock beats scissors!"
+        console.log("You lose! Rock beats scissors!");
+        return "lose";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        return "You win! Scissors beats paper!"
+        console.log("You win! Scissors beats paper!");
+        return "win";
     }
+
 }
 
-console.log(playRound(playerSelection, computerSelection))
+// console.log(playRound(playerSelection, computerSelection)) // Used console log to check that function is working as expected
+
+
+
+// STEP FOUR: Create a function called game() which actually keeps score and reports a winner or a loser at the end of 5 rounds
+ function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+        playRound(playerSelection, computerSelection);
+        if (playRound(playerSelection, computerSelection) === "win") {
+            playerScore += 1;
+        } else if (playRound(playerSelection, computerSelection) === "lose") {
+            computerScore +=1;
+        }
+    }
+
+    if (playerScore === computerScore) {
+        return "It's a draw!"
+    } else if (playerScore > computerScore) {
+        return "You win! Congratulations!"
+    } else {
+        return "You lose! Better luck next time!"
+    }
+ }
+
+ game();
