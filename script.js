@@ -15,9 +15,37 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-console.log(getComputerChoice()); // Used console log to check that the function is working and generating expected results
+const computerSelection = getComputerChoice(); // Store the computer's random choice in a variable for later
+console.log(`Computer chose: ${computerSelection}`); // Used console log to check that the function is working and generating expected results
+
+
 
 // STEP TWO: Allow the user to input a selection between rock, paper, and scissors, and convert it to lowercase
-const playerSelection = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
 
-console.log(playerSelection); // Used console log to check that user input is being stored correctly in playerSelection variable
+const playerSelection = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
+console.log(`Player chose: ${playerSelection}`); // Used console log to check that user input is being stored correctly in playerSelection variable
+
+
+
+// STEP THREE: Create a function to play one round of Rock, Paper, Scissors and return a result. Log the result in the console
+
+function playRound(playerSelection, computerSelection) {
+    // Used conditional statements to check for all gameplay scenarios and return a result
+    if (playerSelection === computerSelection) {
+        return "It's a draw!"
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+        return "You win! Rock beats scissors!"
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
+        return "You lose! Paper beats rock!"
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        return "You lose! Scissors beats paper!"
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+        return "You win! Paper beats rock!"
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        return "You lose! Rock beats scissors!"
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        return "You win! Scissors beats paper!"
+    }
+}
+
+console.log(playRound(playerSelection, computerSelection))
