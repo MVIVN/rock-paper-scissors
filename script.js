@@ -2,7 +2,7 @@
 // STEP ONE: Write a function which lets the computer choose randomly between rock, paper, and scissors
 
 function getComputerChoice() {
-    // Define a list of three choices between Rock, Paper and Scissors
+    // Define a list/array of three choices between Rock, Paper and Scissors
     let choices = ["rock", "paper", "scissors"];
 
     // Make the computer randomly choose between one of the choices
@@ -17,3 +17,7 @@ function getComputerChoice() {
 
 console.log(getComputerChoice()); // Used console log to check that the function is working and generating expected results
 
+// STEP TWO: Allow the user to input a selection between rock, paper, and scissors, and convert it to lowercase
+const playerSelection = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
+
+console.log(playerSelection); // Used console log to check that user input is being stored correctly in playerSelection variable
