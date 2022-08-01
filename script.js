@@ -28,27 +28,29 @@ console.log(`Computer chose: ${computerSelection}`); // Used console log to chec
 
 // STEP THREE: Create a function to play one round of Rock, Paper, Scissors and return a result. Log the result in the console
 
+let outcome; // create a variable to store the outcome of each game in the function below
+
 function playRound(playerSelection, computerSelection) {
     // Used conditional statements to check for all gameplay scenarios and return a result
     if (playerSelection === computerSelection) {
-        console.log("It's a draw!");
+        outcome = "It's a draw!";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        console.log("You win! Rock beats scissors!");
+        outcome = "You win! Rock beats scissors!";
         return "win";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        console.log("You lose! Paper beats rock!");
+        outcome = "You lose! Paper beats rock!";
         return "lose";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        console.log("You lose! Scissors beats paper!");
+        outcome = "You lose! Scissors beats paper!";
         return "lose";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        console.log("You win! Paper beats rock!");
+        outcome = "You win! Paper beats rock!";
         return "win";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        console.log("You lose! Rock beats scissors!");
+        outcome = "You lose! Rock beats scissors!";
         return "lose";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        console.log("You win! Scissors beats paper!");
+        outcome = "You win! Scissors beats paper!";
         return "win";
     }
 
@@ -65,9 +67,13 @@ function playRound(playerSelection, computerSelection) {
         let playerSelection = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
         playRound(playerSelection, computerSelection);
         if (playRound(playerSelection, computerSelection) === "win") {
+            console.log(outcome);
             playerScore += 1;
         } else if (playRound(playerSelection, computerSelection) === "lose") {
             computerScore +=1;
+            console.log(outcome);
+        } else {
+            console.log(outcome);
         }
     }
 
