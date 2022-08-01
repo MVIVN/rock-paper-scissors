@@ -1,74 +1,51 @@
 
-// STEP ONE: Write a function which lets the computer choose randomly between rock, paper, and scissors
-
 function getComputerChoice() {
-    // Define a list/array of three choices between Rock, Paper and Scissors
     let choices = ["rock", "paper", "scissors"];
-
-    // Make the computer randomly choose between one of the choices
     computerChoice = choices[Math.floor(Math.random()*choices.length)];
-    //   For future ref, <Math.random()> generates a random number between 0 and 1, which will likely have a decimal point
-    //   Multiplying by <*choices.length> multiplies that decimal by the length of the array
-    //   Finally, <Math.floor> which wraps the whole operation rounds down the decimal to the nearest whole number
-
-    // Return the result of the computer's choice
     return computerChoice;
 }
 
-// const computerSelection = getComputerChoice(); // Store the computer's random choice in a variable for later
-// console.log(`Computer chose: ${computerSelection}`); // Used console log to check that the function is working and generating expected results
-
-
-
-// STEP TWO: Allow the user to input a selection between rock, paper, and scissors, and convert it to lowercase
-// (Commented out so the prompt would be asked inside looping game() function)
-
-// const playerSelection = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
-// console.log(`Player chose: ${playerSelection}`); // Used console log to check that user input is being stored correctly in playerSelection variable
-
-// STEP THREE: Create a function to play one round of Rock, Paper, Scissors and return a result. Log the result in the console
+function getPlayerChoice() {
+    let weapon = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
+    return weapon;
+}
 
 let outcome; // create a variable to store the outcome of each game in the function below
 
 function playRound(playerSelection, computerSelection) {
-    // Used conditional statements to check for all gameplay scenarios and return a result
     if (playerSelection === computerSelection) {
-        outcome = "It's a draw!";
+        outcome = "It's a draw!\n ";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        outcome = "You win! Rock beats scissors!";
+        outcome = "You win! Rock beats scissors!\n ";
         return "win";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        outcome = "You lose! Paper beats rock!";
+        outcome = "You lose! Paper beats rock!\n ";
         return "lose";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        outcome = "You lose! Scissors beats paper!";
+        outcome = "You lose! Scissors beats paper!\n ";
         return "lose";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        outcome = "You win! Paper beats rock!";
+        outcome = "You win! Paper beats rock!\n ";
         return "win";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        outcome = "You lose! Rock beats scissors!";
+        outcome = "You lose! Rock beats scissors!\n ";
         return "lose";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        outcome = "You win! Scissors beats paper!";
+        outcome = "You win! Scissors beats paper!\n ";
         return "win";
     }
 
 }
 
-
-
-// STEP FOUR: Create a function called game() which actually keeps score and reports a winner or a loser at the end of 5 rounds
  function game() {
     let playerScore = 0;
     let computerScore = 0;
 
     for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
+        const playerSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
-        console.log(`You chose: ${playerSelection}!   Computer chose: ${computerSelection}!`)
+        console.log(`You chose: ${playerSelection}!\nComputer chose: ${computerSelection}!`)
 
-        playRound(playerSelection, computerSelection);
         if (playRound(playerSelection, computerSelection) === "win") {
             console.log(outcome);
             playerScore += 1;
@@ -80,7 +57,7 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 
-    console.log(`Final scores: Player - ${playerScore}   Computer - ${computerScore}`);
+    console.log(`FINAL SCORES\nPlayer: ${playerScore}\nComputer: ${computerScore}\n `);
 
     if (playerScore === computerScore) {
         console.log("It's a draw!");
