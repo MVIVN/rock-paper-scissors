@@ -21,11 +21,10 @@ console.log(`Computer chose: ${computerSelection}`); // Used console log to chec
 
 
 // STEP TWO: Allow the user to input a selection between rock, paper, and scissors, and convert it to lowercase
+// (Commented out so the prompt would be asked inside looping game() function)
 
-const playerSelection = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
-console.log(`Player chose: ${playerSelection}`); // Used console log to check that user input is being stored correctly in playerSelection variable
-
-
+// const playerSelection = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
+// console.log(`Player chose: ${playerSelection}`); // Used console log to check that user input is being stored correctly in playerSelection variable
 
 // STEP THREE: Create a function to play one round of Rock, Paper, Scissors and return a result. Log the result in the console
 
@@ -55,8 +54,6 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-// console.log(playRound(playerSelection, computerSelection)) // Used console log to check that function is working as expected
-
 
 
 // STEP FOUR: Create a function called game() which actually keeps score and reports a winner or a loser at the end of 5 rounds
@@ -65,6 +62,7 @@ function playRound(playerSelection, computerSelection) {
     let computerScore = 0;
 
     for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
         playRound(playerSelection, computerSelection);
         if (playRound(playerSelection, computerSelection) === "win") {
             playerScore += 1;
