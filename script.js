@@ -6,8 +6,8 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    let weapon = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
-    return weapon;
+    let playerChoice = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
+    return playerChoice;
 }
 
 let outcome; // create a variable to store the outcome of each game in the function below
