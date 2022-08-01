@@ -15,8 +15,8 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-const computerSelection = getComputerChoice(); // Store the computer's random choice in a variable for later
-console.log(`Computer chose: ${computerSelection}`); // Used console log to check that the function is working and generating expected results
+// const computerSelection = getComputerChoice(); // Store the computer's random choice in a variable for later
+// console.log(`Computer chose: ${computerSelection}`); // Used console log to check that the function is working and generating expected results
 
 
 
@@ -64,7 +64,10 @@ function playRound(playerSelection, computerSelection) {
     let computerScore = 0;
 
     for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
+        const playerSelection = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
+        const computerSelection = getComputerChoice();
+        console.log(`Computer chose: ${computerSelection} and you chose ${playerSelection}`)
+
         playRound(playerSelection, computerSelection);
         if (playRound(playerSelection, computerSelection) === "win") {
             console.log(outcome);
