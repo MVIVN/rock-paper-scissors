@@ -66,7 +66,7 @@ function playRound(playerSelection, computerSelection) {
     for (let i = 0; i < 5; i++) {
         const playerSelection = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
         const computerSelection = getComputerChoice();
-        console.log(`Computer chose: ${computerSelection} and you chose ${playerSelection}`)
+        console.log(`You chose: ${playerSelection}!   Computer chose: ${computerSelection}!`)
 
         playRound(playerSelection, computerSelection);
         if (playRound(playerSelection, computerSelection) === "win") {
@@ -80,12 +80,14 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 
+    console.log(`Final scores: Player - ${playerScore}   Computer - ${computerScore}`);
+
     if (playerScore === computerScore) {
-        return "It's a draw!"
+        console.log("It's a draw!");
     } else if (playerScore > computerScore) {
-        return "You win! Congratulations!"
+        console.log("You win! Congratulations!");
     } else {
-        return "You lose! Better luck next time!"
+        console.log("You lose! Better luck next time!");
     }
  }
 
