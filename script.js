@@ -6,7 +6,7 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    let playerChoice = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
+    // let playerChoice = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
     return playerChoice;
 }
 
