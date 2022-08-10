@@ -41,7 +41,7 @@ function playRound(playerSelection, computerSelection) {
     let playerScore = 0;
     let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
+    // for (let i = 0; i < 5; i++) {
         const playerSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
         console.log(`You chose: ${playerSelection}!\nComputer chose: ${computerSelection}!`)
@@ -55,7 +55,7 @@ function playRound(playerSelection, computerSelection) {
         } else {
             console.log(outcome);
         }
-    }
+    // }
 
     console.log(`FINAL SCORES\nPlayer: ${playerScore}\nComputer: ${computerScore}\n `);
 
