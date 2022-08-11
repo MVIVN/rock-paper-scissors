@@ -68,12 +68,14 @@ function endGame(userTotal, computerTotal) {
         choices.remove();
         container.insertBefore(finalResult, scores);
         if (userTotal > computerTotal) {
+            finalResult.setAttribute('style', 'border: 2px solid black; background-color: black; color: gold; font-size: 1.2rem; text-align: center;');
             finalResult.innerHTML =
                 `<h2>You win! Congratulations!</h2>
                 <h2>FINAL SCORES</h2>
                 <h3>You: ${userTotal}</h3>
                 <h3>Computer: ${computerTotal}\n</h3>`;
         } else {
+            finalResult.setAttribute('style', 'border: 2px solid black; background-color: black; color: red; font-size: 1.2rem; text-align: center;');
             finalResult.innerHTML = 
                 `<h2>You lose! Better luck next time!</h2>
                 <h2>FINAL SCORES</h2>
@@ -107,7 +109,6 @@ container.appendChild(resultBox);
 
 const finalResult = document.createElement('div');
 finalResult.setAttribute('id', 'finalScores');
-finalResult.setAttribute('style', 'border: 2px solid black; background-color: black; color: gold; font-size: 2rem; text-align: center;');
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
