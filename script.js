@@ -64,7 +64,8 @@ function game(playerSelection) {
         computerScore += 1;
     }
 
-    console.log(`Player score: ${playerScore}, Computer score: ${computerScore}\n `);
+    userScore.innerHTML = `<h2>YOU: <span id='score-tick'>${playerScore}<span></h2>`;
+    pcScore.innerHTML = `<h2>COMPUTER: <span id='score-tick'>${computerScore}<span></h2>`;
 }
 
 function endGame(userTotal, computerTotal) {
@@ -95,9 +96,13 @@ const container = document.querySelector('#container');
 const headline = document.querySelector('#headline');
 const choices = document.querySelector('#choices');
 const scores = document.querySelector('#scores');
+
 const userScore = document.querySelector('#player-score');
 const pcScore = document.querySelector('#computer-score');
-
+const scoreSpan = document.createElement('span');
+scoreSpan.setAttribute('id', 'score-tick')
+userScore.innerHTML = `<h2>YOU: <span id='score-tick'>${playerScore}<span></h2>`;
+pcScore.innerHTML = `<h2>COMPUTER: <span id='score-tick'>${computerScore}<span></h2>`;
 
 const resultBox = document.createElement('div');
 resultBox.setAttribute('id', 'results');
