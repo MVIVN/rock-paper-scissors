@@ -34,11 +34,14 @@ button:hover {
 #weapons {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 #enemy-weapons {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    cursor: not-allowed;
 }
 
 #headline {
@@ -47,6 +50,7 @@ button:hover {
 
 #enemy {
     font-size: 2rem;
+    opacity: 50%;
 }
 
 #chosen-weapon {
