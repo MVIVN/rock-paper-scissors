@@ -21,11 +21,6 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function getPlayerChoice() {
-    // let playerChoice = prompt('Type "rock", "paper", or "scissors" to make a choice!').toLowerCase();
-    return playerChoice;
-}
-
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         showOutcome(gameOutcomes[0]);
