@@ -1,7 +1,23 @@
+// Global variables
+let playerScore = 0;
+let computerScore = 0;
+let outcome = 'Good luck!'; // stores outcome of each round. defaults to "good luck" at the start of a new game
 
+const gameOutcomes = [
+    "It's a draw!\n ",                    //0
+    "You win! Rock beats scissors!\n ",   //1
+    "You lose! Paper beats rock!\n ",     //2
+    "You lose! Scissors beats paper!\n ", //3
+    "You win! Paper beats rock!\n ",      //4
+    "You lose! Rock beats scissors!\n ",  //5
+    "You win! Scissors beats paper!\n "   //6
+];
+
+
+// Functions
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
-    computerChoice = choices[Math.floor(Math.random()*choices.length)];
+    let computerChoice = choices[Math.floor(Math.random() * choices.length)];
     return computerChoice;
 }
 
@@ -10,62 +26,101 @@ function getPlayerChoice() {
     return playerChoice;
 }
 
-let outcome; // create a variable to store the outcome of each game in the function below
-
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        outcome = "It's a draw!\n ";
+        showOutcome(gameOutcomes[0]);
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        outcome = "You win! Rock beats scissors!\n ";
+        showOutcome(gameOutcomes[1]);
         return "win";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        outcome = "You lose! Paper beats rock!\n ";
+        showOutcome(gameOutcomes[2]);
         return "lose";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        outcome = "You lose! Scissors beats paper!\n ";
+        showOutcome(gameOutcomes[3]);
         return "lose";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        outcome = "You win! Paper beats rock!\n ";
+        showOutcome(gameOutcomes[4]);
         return "win";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        outcome = "You lose! Rock beats scissors!\n ";
+        showOutcome(gameOutcomes[5]);
         return "lose";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        outcome = "You win! Scissors beats paper!\n ";
+        showOutcome(gameOutcomes[6]);
         return "win";
     }
-
 }
 
- function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+function showOutcome(displayResult) {
+    resultBox.textContent = displayResult;
+}
 
-    // for (let i = 0; i < 5; i++) {
-        const playerSelection = getPlayerChoice();
-        const computerSelection = getComputerChoice();
-        console.log(`You chose: ${playerSelection}!\nComputer chose: ${computerSelection}!`)
+function game(playerSelection) {
+    const computerSelection = getComputerChoice();
+    console.log(`You chose: ${playerSelection}!\nComputer chose: ${computerSelection}!`)
 
-        if (playRound(playerSelection, computerSelection) === "win") {
-            console.log(outcome);
-            playerScore += 1;
-        } else if (playRound(playerSelection, computerSelection) === "lose") {
-            computerScore +=1;
-            console.log(outcome);
-        } else {
-            console.log(outcome);
-        }
-    // }
-
-    console.log(`FINAL SCORES\nPlayer: ${playerScore}\nComputer: ${computerScore}\n `);
-
-    if (playerScore === computerScore) {
-        console.log("It's a draw!");
-    } else if (playerScore > computerScore) {
-        console.log("You win! Congratulations!");
-    } else {
-        console.log("You lose! Better luck next time!");
+    if (playRound(playerSelection, computerSelection) === "win") {
+        playerScore += 1;
+    } else if (playRound(playerSelection, computerSelection) === "lose") {
+        computerScore += 1;
     }
- }
 
- game();
+    console.log(`Player score: ${playerScore}, Computer score: ${computerScore}\n `);
+}
+
+function endGame(userTotal, computerTotal) {
+    if ((userTotal === 5) || (computerTotal === 5)) {
+        choices.remove();
+        container.insertBefore(finalResult, scores);
+        if (userTotal > computerTotal) {
+            finalResult.innerHTML =
+                `<h2>You win! Congratulations!</h2>
+                <h2>FINAL SCORES</h2>
+                <h3>You: ${userTotal}</h3>
+                <h3>Computer: ${computerTotal}\n</h3>`;
+        } else {
+            finalResult.innerHTML = 
+                `<h2>You lose! Better luck next time!</h2>
+                <h2>FINAL SCORES</h2>
+                <h3>You: ${userTotal}</h3>
+                <h3>Computer: ${computerTotal}</h3>`;
+        }
+    }
+}
+
+
+
+
+// DOM manipulation
+const container = document.querySelector('#container');
+const headline = document.querySelector('#headline');
+const choices = document.querySelector('#choices');
+const scores = document.querySelector('#scores');
+const userScore = document.querySelector('#player-score');
+const pcScore = document.querySelector('#computer-score');
+
+
+const resultBox = document.createElement('div');
+resultBox.setAttribute('id', 'results');
+resultBox.setAttribute('style', 'border: 2px solid black; background-color: white; color: green; font-size: 2rem;');
+resultBox.textContent = outcome;
+container.appendChild(resultBox);
+
+const finalResult = document.createElement('div');
+finalResult.setAttribute('id', 'finalScores');
+finalResult.setAttribute('style', 'border: 2px solid black; background-color: black; color: gold; font-size: 2rem; text-align: center;');
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (button.id === "rock-btn") {
+            game("rock");
+            endGame(playerScore, computerScore);
+        } else if (button.id === "paper-btn") {
+            game("paper");
+            endGame(playerScore, computerScore);
+        } else if (button.id === "scissors-btn") {
+            game("scissors");
+            endGame(playerScore, computerScore);
+        }
+    });
+});
