@@ -79,7 +79,8 @@ function game(playerSelection) {
 
 function endGame(userTotal, computerTotal) {
     if ((userTotal === 5) || (computerTotal === 5)) {
-        choices.remove();
+        weapons.remove();
+        enemyWeapons.remove();
         container.insertBefore(finalResult, scores);
         if (userTotal > computerTotal) {
             finalResult.setAttribute('style', 'border: 2px solid black; background-color: black; color: gold; font-size: 1.2rem; text-align: center;');
@@ -119,8 +120,10 @@ const resultBox = document.createElement('div');
 resultBox.setAttribute('id', 'results');
 resultBox.setAttribute('style', 'border: 2px solid black; background-color: white; color: green; font-size: 2rem;');
 resultBox.textContent = outcome;
-container.appendChild(resultBox);
+container.insertBefore(resultBox, scores);
 
+const weapons = document.querySelector('#weapons');
+const enemyWeapons = document.querySelector('#enemy-weapons');
 const chosenWeapon = document.querySelector('#chosen-weapon');
 const enemyWeapon = document.querySelector('#enemy-chosen-weapon');
 

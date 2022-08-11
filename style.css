@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Poppins:ital,wght@0,100;0,400;0,700;0,900;1,100&family=Silkscreen&display=swap');
+
+body {
+    font-family: 'Silkscreen';
+}
+
 #container {
     display: flex;
     flex-direction: column;
