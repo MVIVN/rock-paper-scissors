@@ -74,8 +74,8 @@ function game(playerSelection) {
         computerScore += 1;
     }
 
-    userScore.innerHTML = `<h2>YOU: <div id='score-tick'>${playerScore}<div></h2>`;
-    pcScore.innerHTML = `<h2>COMPUTER: <div id='score-tick'>${computerScore}<div></h2>`;
+    userScore.innerHTML = `<h2>YOU: </h2><div id='score-tick'>${playerScore}<div>`;
+    pcScore.innerHTML = `<h2>COMPUTER: </h2><div id='score-tick'>${computerScore}<div>`;
 }
 
 function endGame(userTotal, computerTotal) {
@@ -110,8 +110,8 @@ function restartGame() {
     enemyWeapon.innerHTML = '<img src="img/waiting.gif">';
     playerScore = 0;
     computerScore = 0;
-    userScore.innerHTML = `<h2>YOU: <div id='score-tick'>${playerScore}<div></h2>`;
-    pcScore.innerHTML = `<h2>COMPUTER: <div id='score-tick'>${computerScore}<div></h2>`;
+    userScore.innerHTML = `<h2>YOU: </h2><div id='score-tick'>${playerScore}<div>`;
+    pcScore.innerHTML = `<h2>COMPUTER: </h2><div id='score-tick'>${computerScore}<div>`;
     outcome = "Good Luck!";
     showOutcome(outcome);
 }
@@ -146,8 +146,8 @@ const userScore = document.querySelector('#player-score');
 const pcScore = document.querySelector('#computer-score');
 // const scoreDiv = document.createElement('div');
 // scoreDiv.setAttribute('id', 'score-tick');
-userScore.innerHTML = `<h2>YOU: <span id='score-tick'>${playerScore}<span></h2>`;
-pcScore.innerHTML = `<h2>COMPUTER: <span id='score-tick'>${computerScore}<span></h2>`;
+userScore.innerHTML = `<h2>YOU: </h2><span id='score-tick'>${playerScore}<span>`;
+pcScore.innerHTML = `<h2>COMPUTER: </h2><span id='score-tick'>${computerScore}<span>`;
 
 const resultBox = document.createElement('div');
 resultBox.setAttribute('id', 'results');

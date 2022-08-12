@@ -110,20 +110,17 @@ footer {
     margin: 30px;
 }
 
-#player-score {
+#player-score, #computer-score {
     display: flex;
     justify-content: center;
+    align-items: center;
     text-align: center;
-    width: 225px;
     margin-right: 50px;
 }
 
-#computer-score {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: 225px;
-    margin-left: 50px;
+#player-score h2,
+#computer-score h2 {
+    margin: 0 20px;
 }
 
 #score-tick {
