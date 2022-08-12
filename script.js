@@ -14,6 +14,7 @@ const gameOutcomes = [
 ];
 
 
+
 // Functions
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
@@ -87,17 +88,19 @@ function endGame(userTotal, computerTotal) {
             finalResult.innerHTML =
                 `<h2>You win! Congratulations!</h2>
                 <h2>FINAL SCORES</h2>
-                <h3>You: ${userTotal}</h3>
-                <h3>Computer: ${computerTotal}\n</h3>`;
+                <h3>You: ${userTotal} ..... Computer: ${computerTotal}</h3>
+                Would you like to play again?`;
+            finalResult.appendChild(endGameBtns);
         } else {
             finalResult.setAttribute('style', 'border: 2px solid black; background-color: black; color: red; font-size: 1.2rem; text-align: center;');
             finalResult.innerHTML = 
                 `<h2>You lose! Better luck next time!</h2>
                 <h2>FINAL SCORES</h2>
-                <h3>You: ${userTotal}</h3>
-                <h3>Computer: ${computerTotal}</h3>`;
+                <h3>You: ${userTotal} ..... Computer: ${computerTotal}</h3>
+                Would you like to play again?`;
+            finalResult.appendChild(endGameBtns);
         }
-    }
+    } else { return;}
 }
 
 
@@ -130,6 +133,16 @@ const enemyWeapon = document.querySelector('#enemy-chosen-weapon');
 const finalResult = document.createElement('div');
 finalResult.setAttribute('id', 'finalScores');
 
+const endGameBtns = document.createElement('div');
+endGameBtns.setAttribute('id', 'final-btns-div');
+const restartBtn = document.createElement('button');
+restartBtn.setAttribute('id', 'restart-button');
+const endBtn = document.createElement('button');
+endBtn.setAttribute('id', 'end-button');
+endGameBtns.innerHTML = `
+    <button id="restart-button">YES</button>
+    <button id="end-button">NO</button>`;
+
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -142,6 +155,10 @@ buttons.forEach((button) => {
         } else if (button.id === "scissors-btn") {
             game("scissors");
             endGame(playerScore, computerScore);
+        } else if (button.id === "restart-button") {
+            // run restart function
+        } else if (button.id === "end-button") {
+            // run end function
         }
     });
 });
