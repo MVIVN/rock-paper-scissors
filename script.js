@@ -120,7 +120,9 @@ function terminateGame() {
     `<h2>Thank you for playing!!</h2>
     <h2>hope you enjoyed the game!</h2>
     <h3>If you change your mind,</h3>
-    <h3>refresh the page to play again!</h3>`
+    <h3>refresh the page to play again!</h3>`;
+    chosenWeapon.innerHTML = '<img src="img/user-draw.png">';
+    enemyWeapon.innerHTML = '<img src="img/pc-draw.png">';
 }
 
 
