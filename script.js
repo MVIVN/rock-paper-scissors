@@ -107,6 +107,8 @@ function restartGame() {
     finalResult.remove();
     playerBox.insertBefore(weapons, chosenWeapon);
     enemyBox.appendChild(enemyWeapons);
+    chosenWeapon.innerHTML = '<img src="img/choose-weapon.gif">';
+    enemyWeapon.innerHTML = '<img src="img/waiting.gif">';
     playerScore = 0;
     computerScore = 0;
     userScore.innerHTML = `<h2>YOU: <span id='score-tick'>${playerScore}<span></h2>`;
@@ -153,6 +155,9 @@ const weapons = document.querySelector('#weapons');
 const enemyWeapons = document.querySelector('#enemy-weapons');
 const chosenWeapon = document.querySelector('#chosen-weapon');
 const enemyWeapon = document.querySelector('#enemy-chosen-weapon');
+
+chosenWeapon.innerHTML = '<img src="img/choose-weapon.gif">';
+enemyWeapon.innerHTML = '<img src="img/waiting.gif">';
 
 const finalResult = document.createElement('div');
 finalResult.setAttribute('id', 'finalScores');
