@@ -23,7 +23,8 @@ footer {
 }
 
 footer div {
-    margin: 0 100px
+    margin: 0 100px;
+    text-align: center;
 }
 
 #weapons button {
