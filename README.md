@@ -3,5 +3,6 @@ This is my attempt at making the classic "Rock, Paper, Scissors" game using Java
 
 
 
-GIF sources (via GIPHY)
-Rock Paper Scissors headline: <a href="https://giphy.com/gifs/dimmak-rock-paper-scissors-dim-mak-prince-fox-ZNo3OCM9CoEVz71ilQ">via GIPHY</a>
+CSS rainbow box shadow effect courtesy of https://www.getcssscan.com/css-box-shadow-examples
+
+Background gradients courtesy of https://uigradients.com/

@@ -25,35 +25,43 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         showOutcome(gameOutcomes[0]);
+        chosenWeapon.classList.add('draw');
+        enemyWeapon.classList.add('draw');
         chosenWeapon.innerHTML = '<img src="img/user-draw.png">';
         enemyWeapon.innerHTML = '<img src="img/pc-draw.png">';
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         showOutcome(gameOutcomes[1]);
+        chosenWeapon.classList.add('chosen');
         chosenWeapon.innerHTML = '<img src="img/user-rock-win.png">';
         enemyWeapon.innerHTML = '<img src="img/pc-scissors-lose.png">';
         return "win";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         showOutcome(gameOutcomes[2]);
+        enemyWeapon.classList.add('chosen');
         chosenWeapon.innerHTML = '<img src="img/user-rock-lose.png">';
         enemyWeapon.innerHTML = '<img src="img/pc-paper-win.png">';
         return "lose";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         showOutcome(gameOutcomes[3]);
+        enemyWeapon.classList.add('chosen');
         chosenWeapon.innerHTML = '<img src="img/user-paper-lose.png">';
         enemyWeapon.innerHTML = '<img src="img/pc-scissors-win.png">';
         return "lose";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         showOutcome(gameOutcomes[4]);
+        chosenWeapon.classList.add('chosen');
         chosenWeapon.innerHTML = '<img src="img/user-paper-win.png">';
         enemyWeapon.innerHTML = '<img src="img/pc-rock-lose.png">';
         return "win";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         showOutcome(gameOutcomes[5]);
+        enemyWeapon.classList.add('chosen');
         chosenWeapon.innerHTML = '<img src="img/user-scissors-lose.png">';
         enemyWeapon.innerHTML = '<img src="img/pc-rock-win.png">';
         return "lose";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         showOutcome(gameOutcomes[6]);
+        chosenWeapon.classList.add('chosen');
         chosenWeapon.innerHTML = '<img src="img/user-scissors-win.png">';
         enemyWeapon.innerHTML = '<img src="img/pc-paper-lose.png">';
         return "win";
@@ -120,6 +128,8 @@ function terminateGame() {
     showOutcome("Game Over!");
     chosenWeapon.innerHTML = '<img src="img/user-draw.png">';
     enemyWeapon.innerHTML = '<img src="img/pc-draw.png">';
+    chosenWeapon.classList.add('chosen');
+    enemyWeapon.classList.add('chosen');
 
     finalResultWin.innerHTML =
     `<h2>Thank you for playing!!</h2>
@@ -160,6 +170,18 @@ const weapons = document.querySelector('#weapons');
 const enemyWeapons = document.querySelector('#enemy-weapons');
 const chosenWeapon = document.querySelector('#chosen-weapon');
 const enemyWeapon = document.querySelector('#enemy-chosen-weapon');
+
+chosenWeapon.addEventListener('transitionend', removeTransition);
+function removeTransition() {
+    this.classList.remove('chosen');
+    this.classList.remove('draw');
+}
+
+enemyWeapon.addEventListener('transitionend', removeTransition);
+function removeTransition() {
+    this.classList.remove('chosen');
+    this.classList.remove('draw');
+}
 
 chosenWeapon.innerHTML = '<img src="img/choose-weapon.gif">';
 enemyWeapon.innerHTML = '<img src="img/waiting.gif">';

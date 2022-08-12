@@ -52,6 +52,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-right: 30px;
 }
 
 #enemy-weapons {
@@ -59,6 +60,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     cursor: not-allowed;
+    margin-left: 30px;
 }
 
 #headline {
@@ -96,6 +98,7 @@ footer {
     width: 150px;
     height: 150px;
     margin-right: 50px;
+    transition:all 0.3s;
 }
 
 #enemy-chosen-weapon {
@@ -103,6 +106,19 @@ footer {
     width: 150px;
     height: 150px;
     margin-left: 50px;
+    transition:all 0.3s;
+}
+
+.chosen {
+    transform: scale(1.1);
+    border-color: #ffcc33;
+    box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+}
+
+.draw {
+    transform: scale(1.1);
+    border-color: #ffcc33;
+    box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(61, 212, 180) 0px 0px 0px 6px, rgb(15, 51, 252) 0px 0px 0px 9px, rgb(32, 220, 245) 0px 0px 0px 12px, rgb(103, 78, 216) 0px 0px 0px 15px;
 }
 
 #scores {
@@ -152,8 +168,6 @@ footer {
     background-image: linear-gradient(to bottom, #232526, #414345);
 }
 
-
-
 #finalResult {
     padding: 50px;
 }
@@ -201,7 +215,8 @@ footer {
     margin-bottom: 30px;
 }
 
-#finalWin h2 {
+#finalWin h2,
+#finalWin h3 {
     margin: 10px 0;
 }
 
@@ -219,7 +234,6 @@ footer {
     padding: 35px 100px;
 }
 
-#finalWin h2,
 #finalLose h2,
 #finalLose h3 {
     margin: 10px 0;
