@@ -103,6 +103,26 @@ function endGame(userTotal, computerTotal) {
     } else { return;}
 }
 
+function restartGame() {
+    finalResult.remove();
+    playerBox.insertBefore(weapons, chosenWeapon);
+    enemyBox.appendChild(enemyWeapons);
+    playerScore = 0;
+    computerScore = 0;
+    userScore.innerHTML = `<h2>YOU: <span id='score-tick'>${playerScore}<span></h2>`;
+    pcScore.innerHTML = `<h2>COMPUTER: <span id='score-tick'>${computerScore}<span></h2>`;
+    outcome = "Good Luck!";
+    showOutcome(outcome);
+}
+
+function terminateGame() {
+    finalResult.innerHTML =
+    `<h2>Thank you for playing!!</h2>
+    <h2>hope you enjoyed the game!</h2>
+    <h3>If you change your mind,</h3>
+    <h3>refresh the page to play again!</h3>`
+}
+
 
 
 
@@ -125,6 +145,8 @@ resultBox.setAttribute('style', 'border: 2px solid black; background-color: whit
 resultBox.textContent = outcome;
 container.insertBefore(resultBox, scores);
 
+const playerBox = document.querySelector('#the-player');
+const enemyBox = document.querySelector('#the-challenger');
 const weapons = document.querySelector('#weapons');
 const enemyWeapons = document.querySelector('#enemy-weapons');
 const chosenWeapon = document.querySelector('#chosen-weapon');
@@ -133,15 +155,18 @@ const enemyWeapon = document.querySelector('#enemy-chosen-weapon');
 const finalResult = document.createElement('div');
 finalResult.setAttribute('id', 'finalScores');
 
-const endGameBtns = document.createElement('div');
-endGameBtns.setAttribute('id', 'final-btns-div');
 const restartBtn = document.createElement('button');
 restartBtn.setAttribute('id', 'restart-button');
+restartBtn.setAttribute('onclick', 'restartGame()');
+restartBtn.textContent = "YES";
 const endBtn = document.createElement('button');
 endBtn.setAttribute('id', 'end-button');
-endGameBtns.innerHTML = `
-    <button id="restart-button">YES</button>
-    <button id="end-button">NO</button>`;
+endBtn.setAttribute('onclick', 'terminateGame()');
+endBtn.textContent = "NO";
+const endGameBtns = document.createElement('div');
+endGameBtns.setAttribute('id', 'final-btns-div');
+endGameBtns.appendChild(restartBtn);
+endGameBtns.appendChild(endBtn);
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
@@ -155,10 +180,6 @@ buttons.forEach((button) => {
         } else if (button.id === "scissors-btn") {
             game("scissors");
             endGame(playerScore, computerScore);
-        } else if (button.id === "restart-button") {
-            // run restart function
-        } else if (button.id === "end-button") {
-            // run end function
         }
     });
 });
