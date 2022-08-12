@@ -74,59 +74,65 @@ function game(playerSelection) {
         computerScore += 1;
     }
 
-    userScore.innerHTML = `<h2>YOU: <span id='score-tick'>${playerScore}<span></h2>`;
-    pcScore.innerHTML = `<h2>COMPUTER: <span id='score-tick'>${computerScore}<span></h2>`;
+    userScore.innerHTML = `<h2>YOU: <div id='score-tick'>${playerScore}<div></h2>`;
+    pcScore.innerHTML = `<h2>COMPUTER: <div id='score-tick'>${computerScore}<div></h2>`;
 }
 
 function endGame(userTotal, computerTotal) {
     if ((userTotal === 5) || (computerTotal === 5)) {
         weapons.remove();
         enemyWeapons.remove();
-        container.insertBefore(finalResult, scores);
         if (userTotal > computerTotal) {
-            finalResult.setAttribute('style', 'border: 2px solid black; background-color: black; color: gold; font-size: 1.2rem; text-align: center;');
-            finalResult.innerHTML =
+            container.insertBefore(finalResultWin, scores);
+            finalResultWin.innerHTML =
                 `<h2>You win! Congratulations!</h2>
                 <h2>FINAL SCORES</h2>
                 <h3>You: ${userTotal} ..... Computer: ${computerTotal}</h3>
                 Would you like to play again?`;
-            finalResult.appendChild(endGameBtns);
+            finalResultWin.appendChild(endGameBtns);
         } else {
-            finalResult.setAttribute('style', 'border: 2px solid black; background-color: black; color: red; font-size: 1.2rem; text-align: center;');
-            finalResult.innerHTML = 
+            container.insertBefore(finalResultLose, scores);
+            finalResultLose.innerHTML = 
                 `<h2>You lose! Better luck next time!</h2>
                 <h2>FINAL SCORES</h2>
                 <h3>You: ${userTotal} ..... Computer: ${computerTotal}</h3>
                 Would you like to play again?`;
-            finalResult.appendChild(endGameBtns);
+            finalResultLose.appendChild(endGameBtns);
         }
     } else { return;}
 }
 
 function restartGame() {
-    finalResult.remove();
+    finalResultWin.remove(); finalResultLose.remove();
     playerBox.insertBefore(weapons, chosenWeapon);
     enemyBox.appendChild(enemyWeapons);
     chosenWeapon.innerHTML = '<img src="img/choose-weapon.gif">';
     enemyWeapon.innerHTML = '<img src="img/waiting.gif">';
     playerScore = 0;
     computerScore = 0;
-    userScore.innerHTML = `<h2>YOU: <span id='score-tick'>${playerScore}<span></h2>`;
-    pcScore.innerHTML = `<h2>COMPUTER: <span id='score-tick'>${computerScore}<span></h2>`;
+    userScore.innerHTML = `<h2>YOU: <div id='score-tick'>${playerScore}<div></h2>`;
+    pcScore.innerHTML = `<h2>COMPUTER: <div id='score-tick'>${computerScore}<div></h2>`;
     outcome = "Good Luck!";
     showOutcome(outcome);
 }
 
 function terminateGame() {
-    finalResult.innerHTML =
+    finalResultWin.innerHTML =
     `<h2>Thank you for playing!!</h2>
-    <h2>hope you enjoyed the game!</h2>
+    <h2>Hope you enjoyed the game!</h2>
+    <h3>If you change your mind,</h3>
+    <h3>refresh the page to play again!</h3>`;
+    chosenWeapon.innerHTML = '<img src="img/user-draw.png">';
+    enemyWeapon.innerHTML = '<img src="img/pc-draw.png">';
+
+    finalResultLose.innerHTML =
+    `<h2>Thank you for playing!!</h2>
+    <h2>Hope you enjoyed the game!</h2>
     <h3>If you change your mind,</h3>
     <h3>refresh the page to play again!</h3>`;
     chosenWeapon.innerHTML = '<img src="img/user-draw.png">';
     enemyWeapon.innerHTML = '<img src="img/pc-draw.png">';
 }
-
 
 
 
@@ -138,14 +144,13 @@ const scores = document.querySelector('#scores');
 
 const userScore = document.querySelector('#player-score');
 const pcScore = document.querySelector('#computer-score');
-const scoreSpan = document.createElement('span');
-scoreSpan.setAttribute('id', 'score-tick')
+// const scoreDiv = document.createElement('div');
+// scoreDiv.setAttribute('id', 'score-tick');
 userScore.innerHTML = `<h2>YOU: <span id='score-tick'>${playerScore}<span></h2>`;
 pcScore.innerHTML = `<h2>COMPUTER: <span id='score-tick'>${computerScore}<span></h2>`;
 
 const resultBox = document.createElement('div');
 resultBox.setAttribute('id', 'results');
-resultBox.setAttribute('style', 'border: 2px solid black; background-color: white; color: green; font-size: 2rem;');
 resultBox.textContent = outcome;
 container.insertBefore(resultBox, scores);
 
@@ -159,8 +164,10 @@ const enemyWeapon = document.querySelector('#enemy-chosen-weapon');
 chosenWeapon.innerHTML = '<img src="img/choose-weapon.gif">';
 enemyWeapon.innerHTML = '<img src="img/waiting.gif">';
 
-const finalResult = document.createElement('div');
-finalResult.setAttribute('id', 'finalScores');
+const finalResultWin = document.createElement('div');
+finalResultWin.setAttribute('id', 'finalWin');
+const finalResultLose = document.createElement('div');
+finalResultLose.setAttribute('id', 'finalLose');
 
 const restartBtn = document.createElement('button');
 restartBtn.setAttribute('id', 'restart-button');

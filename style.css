@@ -1,7 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Poppins:ital,wght@0,100;0,400;0,700;0,900;1,100&family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 body {
-    font-family: 'Silkscreen';
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    font-size: 1rem;
 }
 
 #container {
@@ -12,7 +19,7 @@ body {
     align-items: center;
     margin: 0 auto;
     padding: 30px;
-    background-color: #CCC;
+    background-image: linear-gradient(to bottom, #00d2ff, #3a7bd5)
 }
 
 #weapons button {
@@ -20,6 +27,7 @@ body {
     border: none;
     background: none;
     cursor: pointer;
+    text-shadow: 2px 2px 5px rgb(34, 34, 34);
 }
 
 #weapons button:hover {
@@ -57,20 +65,41 @@ body {
     text-align: center;
 }
 
+#headline h1 {
+    font-size: 3rem;
+    background-image: linear-gradient(to left, #ffb347, #ffcc33);
+    color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-stroke: 1px black;
+    
+}
+
+#headline h2 {
+    font-size: 2rem;
+    background-image: linear-gradient(to left, #ffb347, #ffcc33);
+    color: #ffcc33;
+    -webkit-background-clip: text;
+            background-clip: text;
+    text-shadow: 2px 2px 5px rgb(63, 63, 63);
+    margin-bottom: 50px;
+    
+}
+
 #enemy {
     font-size: 2rem;
-    opacity: 50%;
+    opacity: 75%;
 }
 
 #chosen-weapon {
-    border: 2px solid black;
+    border: 1px solid black;
     width: 150px;
     height: 150px;
     margin-right: 50px;
 }
 
 #enemy-chosen-weapon {
-    border: 2px solid black;
+    border: 1px solid black;
     width: 150px;
     height: 150px;
     margin-left: 50px;
@@ -78,21 +107,55 @@ body {
 
 #scores {
     display: flex;
-    justify-content: space-between;
+    margin: 30px;
 }
 
-#results {
+#player-score {
+    display: flex;
+    justify-content: center;
     text-align: center;
-    padding: .5rem;
-    margin: 1rem 0;
+    width: 225px;
+    margin-right: 50px;
+}
+
+#computer-score {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 225px;
+    margin-left: 50px;
 }
 
 #score-tick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
     font-size: 3rem;
-    background-color: white;
-    border: 2px solid black;
+    background-image: linear-gradient(to bottom, #232526, #414345);
+    border: 8px solid white;
+    border-style: ridge;
+    color: #93f9b9;
+    text-shadow: 2px 2px 3px;
     padding: 10px;
 }
+
+#results {
+    flex: 0 0 auto;
+    width: 550px;
+    font-size: 2rem;
+    text-align: center;
+    color: #93f9b9;
+    text-shadow: 2px 2px 7px;
+    border: 8px solid white;
+    border-style: ridge;
+    padding: 10px 0;
+    margin: 50px;
+    background-image: linear-gradient(to bottom, #232526, #414345);
+}
+
+
 
 #finalResult {
     padding: 50px;
@@ -104,15 +167,63 @@ body {
 }
 
 #final-btns-div button {
-    margin: 20px;
+    margin: 30px;
     padding: 15px;
     width: 100px;
-    font-family: 'Silkscreen';
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
 }
 
 #final-btns-div button:hover {
     transform: scale(1.2);
     cursor: pointer;
-    background-color: orange;
+}
+
+#restart-button {
+    font-weight: 700;
+    background-image: linear-gradient(to bottom, #add100, #607010);
+}
+
+#end-button {
+    font-weight: 700;
+    background-image: linear-gradient(to bottom, #ffc500, #c21500);
+}
+
+#finalWin {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 5px black;
+    border: 1px solid black;
+    color: gold;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #43cea2, #185a9d);
+    padding: 30px 100px;
+    margin-bottom: 30px;
+}
+
+#finalWin h2 {
+    margin: 10px 0;
+}
+
+#finalLose {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 5px black;
+    border: 1px solid black;
+    color: red;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #780206, #061161);
+    padding: 35px 100px;
+}
+
+#finalWin h2,
+#finalLose h2,
+#finalLose h3 {
+    margin: 10px 0;
 }
