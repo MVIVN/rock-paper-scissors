@@ -237,4 +237,6 @@ images.innerHTML = `
 <img src="img/pc-rock-win.png">;
 <img src="img/user-scissors-win.png">;
 <img src="img/pc-paper-lose.png">;
+<img src="img/choose-weapon.gif">;
+<img src="img/waiting.gif">;
 `
