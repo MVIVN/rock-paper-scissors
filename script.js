@@ -219,3 +219,22 @@ buttons.forEach((button) => {
         }
     });
 });
+
+// preload images
+const images = document.createElement('div');
+images.innerHTML = `
+<img src="img/user-draw.png"></img>;
+<img src="img/pc-draw.png">;
+<img src="img/user-rock-win.png">;
+<img src="img/pc-scissors-lose.png">;
+<img src="img/user-rock-lose.png">;
+<img src="img/pc-paper-win.png">;
+<img src="img/user-paper-lose.png">;
+<img src="img/pc-scissors-win.png">;
+<img src="img/user-paper-win.png">;
+<img src="img/pc-rock-lose.png">;
+<img src="img/user-scissors-lose.png">;
+<img src="img/pc-rock-win.png">;
+<img src="img/user-scissors-win.png">;
+<img src="img/pc-paper-lose.png">;
+`
